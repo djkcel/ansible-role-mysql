@@ -1,0 +1,5 @@
+---
+
+mysql_package_name:
+  RedHat: mysql
+  Debian: mariadb

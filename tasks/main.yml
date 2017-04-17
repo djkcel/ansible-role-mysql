@@ -1,0 +1,6 @@
+---
+
+- name: Attempt Install Mysql
+  package:
+    name: "{{ mysql_package_name[ansible_os_family] }}"
+    state: present
