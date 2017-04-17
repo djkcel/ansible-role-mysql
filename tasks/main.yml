@@ -1,5 +1,11 @@
 ---
 
+- name: Add MySQL repo
+  rpm_key:
+    state: present
+    key: http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm
+  when: ansible_os_family == "RedHat"
+
 - name: Attempt Install Mysql
   package:
     name: "{{ mysql_package_name[ansible_os_family] }}"
