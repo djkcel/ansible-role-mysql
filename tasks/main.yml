@@ -10,3 +10,4 @@
   package:
     name: "{{ mysql_package_name[ansible_os_family] }}"
     state: present
+  when: ansible_os_family != "RedHat"
