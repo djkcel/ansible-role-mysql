@@ -10,24 +10,23 @@
   roles:
     - role_under_test
   post_tasks:
-  - name: Check Working URI
-    uri:
-      url: http://www.google.com
-      force_basic_auth: yes
-      return_content: yes
-      status_code: 200
-      follow_redirects: all
-    register: __jenkins_webpage
-  - name: Debug Webpage
-    debug: var=__jenkins_webpage
+  
+    - name: Check Working URI
+      uri:
+        url: http://www.google.com
+        force_basic_auth: yes
+        return_content: yes
+        status_code: 200
+        follow_redirects: all
+      register: __jenkins_webpage
+    - name: Debug Webpage
+      debug: var=__jenkins_webpage
 
-
-  - name: Check if MySQL is running
-    service:
-      name: mysql
-      state: started
-    register: service_mysql_status
+    - name: Check if MySQL is running
+      service:
+        name: mysql
+        state: started
+      register: service_mysql_status
 
     - name: Report status of MySQL
       debug: var=service_mysql_status
-      when: service_mysql_status | failed
