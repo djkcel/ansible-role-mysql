@@ -8,5 +8,14 @@
 
 - name: Attempt Install Mysql
   package:
-    name: "{{ mysql_package_name[ansible_os_family] }}"
+    name: "{{ item }}"
     state: present
+  with_items:
+    - mysql
+    - mysql-server
+
+- name: Check if MySQL is running
+  service:
+    name: mysqld
+    state: started
+  register: service_mysql_status
