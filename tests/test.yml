@@ -23,7 +23,7 @@
 
     - name: Check if MySQL is running
       service:
-        name: mysql
+        name: mysqld
         state: started
       register: service_mysql_status
 
