@@ -1,5 +1,8 @@
 ---
 
+mysql_root_user_name: root
+mysql_root_user_password: ChangeMePlease
+
 mysql_package_name:
   RedHat: mysql
   Debian: mariadb

@@ -10,7 +10,6 @@
   roles:
     - role_under_test
   post_tasks:
-  
     - name: Check Working URI
       uri:
         url: http://www.google.com
